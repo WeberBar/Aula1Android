@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import static android.widget.Toast.LENGTH_LONG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
         CheckBox checkBox;
-        RadioGroup radioGroup;
+
         List<CheckBox> checkBoxList = new ArrayList<>();
 
     @Override
@@ -76,22 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
-    public void checkRadios(View view){
-        radioGroup = findViewById(R.id.radioGroup);
-
-        int selectId = radioGroup.getCheckedRadioButtonId();
-
-        if (selectId == -1){
-            Toast.makeText(MainActivity.this, "Selecione uma opção", Toast.LENGTH_LONG).show();
-        } else {
-            RadioButton selecRadioButton = findViewById(selectId);
-            String selectText = selecRadioButton.getText().toString();
-
-            Toast.makeText(MainActivity.this, selectText, LENGTH_LONG).show();
-        }
+    public void pularTela(View view){
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class );
+        startActivity(intent);
+        finish();
     }
-
     @Override
     protected void onStart(){
         super.onStart();
